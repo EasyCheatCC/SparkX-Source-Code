@@ -68,7 +68,7 @@ for i,v in pairs(Blacklist) do
                 })
             }
             )
-            Rayfield:Destroy()
+            --ayfield:Destroy()
         plr:Kick("This HWID: "..HWID.." is on the Blacklist!")
     end
 end
@@ -326,8 +326,22 @@ local jump = tab1.new("slider", {
 local usernameLabel = tab1.new("label", {
     text = "User logged in as: "..plr.Name
 })
+local tab4 = window.new({
+    text = "Misc"
+})
+local chatflooder = tab4.new("switch", {
+    text = "Chat Flooder"
+})
 
-
+local tab3 = window.new({
+    text = "Credits"
+})
+local credit1 = tab3.new("label", {
+    text = "Scripted by: Spark"
+})
+local usernameLabe2 = tab3.new("label", {
+    text = "User logged in as: "..plr.Name
+})
 --Player Tab Functions
 speed.event:Connect(function(x)
     print(plr.Name.."'s speed has been changed to: "..x)
@@ -402,41 +416,62 @@ aaimbot.event:Connect(function(bool)
     end
 end)
 chams.event:Connect(function()
+    while true do
+    wait(1)
     _G.Chams = true
-    if _G.Chams == true then
-        function CreateGui(name,parent,face) -- function that creates the Chams
-            local SurfaceGui = Instance.new("SurfaceGui",parent) --- Creates a SurfaceGui in the game
-            SurfaceGui.Parent = parent
-            SurfaceGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-            SurfaceGui.Face = Enum.NormalId[face]
-            SurfaceGui.LightInfluence = 0
-            SurfaceGui.ResetOnSpawn = false
-            SurfaceGui.Name = name
-            SurfaceGui.AlwaysOnTop = true
-            local Frame = Instance.new("Frame",SurfaceGui)
-            Frame.BackgroundColor3 = Color3.fromRGB(85, 170, 255) -- colour for the surfacgui
-            Frame.Size = UDim2.new(1,0,1,0)
-        end
+        if _G.Chams == true then
+            function CreateGui(name,parent,face) -- function that creates the Chams
+                local SurfaceGui = Instance.new("SurfaceGui",parent) --- Creates a SurfaceGui in the game
+                SurfaceGui.Parent = parent
+                SurfaceGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+                SurfaceGui.Face = Enum.NormalId[face]
+                 SurfaceGui.LightInfluence = 0
+                SurfaceGui.ResetOnSpawn = false
+                SurfaceGui.Name = name
+                SurfaceGui.AlwaysOnTop = true
+                local Frame = Instance.new("Frame",SurfaceGui)
+                Frame.BackgroundColor3 = Color3.fromRGB(85, 170, 255) -- colour for the surfacgui
+                Frame.Size = UDim2.new(1,0,1,0)
+            end
         
-        while wait(1) do
-            for i,v in pairs (game.Players:GetPlayers()) do --- gets all the players in the game and loops through them
-                if v ~= plr and v.Character ~= nil and v.Character:FindFirstChild("Head") and _G.Chams and v.Character.Head:FindFirstChild("cham") == nil then--and v.TeamColor ~= plr.TeamColor then --- Checks to check if the player is appropiate to make a cham
-                    for i,v in pairs (v.Character:GetChildren()) do -- looping through every child in the character of the player
-                        if v:IsA("MeshPart") or v.Name == "Head" then -- checking if the child is a body part
-                            CreateGui("cham",v,"Back")
-                            CreateGui("cham",v,"Front")
-                            CreateGui("cham",v,"Top")
-                            CreateGui("cham",v,"Bottom")
-                            CreateGui("cham",v,"Right")
-                            CreateGui("cham",v,"Left")
+            while wait(1) do
+                for i,v in pairs (game.Players:GetPlayers()) do --- gets all the players in the game and loops through them
+                    if v ~= plr and v.Character ~= nil and v.Character:FindFirstChild("Head") and _G.Chams and v.Character.Head:FindFirstChild("cham") == nil then--and v.TeamColor ~= plr.TeamColor then --- Checks to check if the player is appropiate to make a cham
+                        for i,v in pairs (v.Character:GetChildren()) do -- looping through every child in the character of the player
+                            if v:IsA("MeshPart") or v.Name == "Head" then -- checking if the child is a body part
+                                CreateGui("cham",v,"Back")
+                                CreateGui("cham",v,"Front")
+                                CreateGui("cham",v,"Top")
+                                CreateGui("cham",v,"Bottom")
+                                CreateGui("cham",v,"Right")
+                                CreateGui("cham",v,"Left")
+                            end
                         end
-                    end
                     
+                    end
                 end
             end
         end
     end
 end)
+local chaton = false
+    chatflooder.event:Connect(function(bool)
+        if bool == true then
+            chaton = true
+            if chaton == true then
+                while true do
+                    wait()
+                    warn("Not In Use Right Now")
+                    if chaton == false then
+                        break
+                    end
+                end
+            end
+        end
+        if bool == false then
+            chaton = false
+        end
+    end)
     Rayfield:Destroy()
     end,
  })
