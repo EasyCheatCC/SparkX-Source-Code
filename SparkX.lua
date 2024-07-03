@@ -73,7 +73,7 @@ for i,v in pairs(Blacklist) do
     end
 end
 if ValidKey == false then
-    Rayfield:Destroy()
+    --Rayfield:Destroy()
     plr:Kick("It looks like this key is invalid please buy one from the discord!")
     local response = request(
         {
